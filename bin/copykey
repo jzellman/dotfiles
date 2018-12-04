@@ -1,0 +1,7 @@
+PORT=$2
+if test -e $PORT; then
+  PORT='22'
+fi
+
+cat ~/.ssh/id_rsa.pub | ssh -p $PORT $1 "mkdir -p .ssh; cat >> .ssh/authorized_keys"
+
